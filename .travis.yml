@@ -1,0 +1,12 @@
+language: node_js
+node_js: 18
+os: linux
+dist: focal
+deploy:
+  provider: pages
+  cleanup: false
+  token: $github_token
+  strategy: git
+  local_dir: build
+  on:
+    branch: main
