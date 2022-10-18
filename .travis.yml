@@ -1,7 +1,28 @@
 language: node_js
-node_js: 18
+
+node_js: 
+  - "stable"
+
 os: linux
 dist: focal
+
+branches:
+  only:
+    - master
+
+cache: 
+  directories:
+    - node_modules
+
+install:
+  - npm install
+  - npm install -g yarn
+
+script:
+  # -yarn lint
+  - yarn build
+  - mv build/index.html build/404.html
+
 deploy:
   provider: pages
   cleanup: false
